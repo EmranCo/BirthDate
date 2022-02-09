@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmranCo</title>
+    <style>
+        .cardImages {
+            display: flex;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="date" id="dateInput" />
+    <h2 id="imageTitle"></h2>
+    <div class="cardImages" id="container">
+
+
+    </div>
+</body>
+
+
+<script>
+    var input;
+    var dateEntered;
+    var age;
+
+    document.getElementById("dateInput").addEventListener("change", function() {
+        input = this.value;
+        dateEntered = new Date(input);
+
+        age = Number(new Date().getFullYear().toString()) - Number(dateEntered.getFullYear().toString());
+        var head = document.getElementById('imageTitle');
+        var container = document.getElementById('container');
+
+        if (age >= 1 && age <= 12) {
+            head.innerText = "طفل 👩🏼‍🦲👩🏼‍🦲👩🏼‍🦲";
+            container.innerHTML = "";
+            for (let index = 1; index < 5; index++) {
+
+                container.innerHTML += '<img src="images/baby/img' + index + '.jpeg" alt="BabyImage' + index + '">';
+            }
+
+        } else if (age >= 13 && age <= 18) {
+            head.innerText = "مراهق 🧑🏻‍🦱🧑🏻‍🦱🧑🏻‍🦱";
+            container.innerHTML = "";
+            for (let index = 1; index < 5; index++) {
+
+                container.innerHTML += '<img src="images/adult/img' + index + '.jpeg" alt="AdultImage' + index + '">';
+            }
+        } else if (age >= 19 && age <= 46) {
+            head.innerText = "شاب 👨🏼👨🏼👨🏼👨🏼";
+            container.innerHTML = "";
+            for (let index = 1; index < 5; index++) {
+
+                container.innerHTML += '<img src="images/man/img' + index + '.jpeg" alt="ManImage' + index + '">';
+            }
+        } else if (age > 46) {
+            head.innerText = "عجااااازي 👨🏾‍🦳👨🏾‍🦳👨🏾‍🦳👨🏾‍🦳👨🏾‍🦳";
+            container.innerHTML = "";
+            for (let index = 1; index < 5; index++) {
+
+                container.innerHTML += '<img src="images/old/img' + index + '.jpeg" alt="OldImage' + index + '">';
+            }
+        } else {
+            head.innerText = "عادك مخلوق ... مو دخلك هنا  😂😂😂😂";
+            container.innerHTML = "";
+        }
+    });
+</script>
+
+</html>
